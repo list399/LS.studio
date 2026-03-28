@@ -192,6 +192,8 @@ main {
   columns: 3;
   column-gap: 6px;
   padding: 6px 0;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 @media (max-width: 600px) {

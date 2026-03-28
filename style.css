@@ -189,20 +189,18 @@ main {
 
 /* ── Masonry grid ── */
 .masonry {
-  columns: 3;
-  column-gap: 6px;
-  padding: 6px 0;
-  max-width: 80%;
-  margin: 0 auto;
+  columns: 2;
+  column-gap: 1.5rem;
+  padding: 2rem 0;
 }
 
 @media (max-width: 600px) {
-  .masonry { columns: 2; }
+  .masonry { columns: 1; }
 }
 
 .masonry-item {
   break-inside: avoid;
-  margin-bottom: 6px;
+  margin-bottom: 1.5rem;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -210,33 +208,21 @@ main {
 
 .masonry-item img {
   width: 100%;
-  max-width: 400px;
-  max-height: 400px;
-  object-fit: contain;
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
 }
 
 .masonry-item:hover img {
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .masonry-caption {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: rgba(255,255,255,0.92);
-  padding: 0.6rem 0.8rem;
-  transform: translateY(100%);
-  transition: transform 0.25s ease;
-}
-
-.masonry-item:hover .masonry-caption {
-  transform: translateY(0);
+  padding: 0.6rem 0 0;
 }
 
 .masonry-caption-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 400;
   color: #000;
   text-decoration: none;
@@ -249,10 +235,10 @@ main {
 }
 
 .masonry-caption-blurb {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #555;
-  margin-top: 0.2rem;
-  line-height: 1.4;
+  margin-top: 0.15rem;
+  line-height: 1.5;
   font-weight: 300;
 }
 

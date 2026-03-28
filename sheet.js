@@ -26,15 +26,42 @@ function renderPosts(posts, containerId) {
     container.innerHTML = '<p class="loading">no posts yet</p>';
     return;
   }
-  container.innerHTML = posts.map((p, i) => `
-    <div class="post" style="animation-delay:${i * 0.07}s">
-      ${p.image ? `<img class="post-image" src="${p.image}" alt="${p.title}">` : ''}
-      <div class="post-title">
-        <a href="${p.url}" target="_blank" rel="noopener">${p.title}</a>
+
+  const withImages = posts.filter(p => p.image && p.image.trim() !== '');
+  const withoutImages = posts.filter(p => !p.image || p.image.trim() === '');
+
+  let html = '';
+
+  if (withImages.length) {
+    html += `<div class="masonry">` + withImages.map(p => `
+      <div class="masonry-item">
+        <img src="${p.image}" alt="${p.title}">
+        <div class="masonry-caption">
+          ${p.url
+            ? `<a class="masonry-caption-title" href="${p.url}" target="_blank" rel="noopener">${p.title}</a>`
+            : `<span class="masonry-caption-title">${p.title}</span>`
+          }
+          ${p.blurb ? `<p class="masonry-caption-blurb">${p.blurb}</p>` : ''}
+        </div>
       </div>
-      ${p.blurb ? `<p class="post-blurb">${p.blurb}</p>` : ''}
-    </div>
-  `).join('');
+    `).join('') + `</div>`;
+  }
+
+  if (withoutImages.length) {
+    html += withoutImages.map((p, i) => `
+      <div class="post" style="animation-delay:${i * 0.07}s">
+        <div class="post-title">
+          ${p.url
+            ? `<a href="${p.url}" target="_blank" rel="noopener">${p.title}</a>`
+            : `<span>${p.title}</span>`
+          }
+        </div>
+        ${p.blurb ? `<p class="post-blurb">${p.blurb}</p>` : ''}
+      </div>
+    `).join('');
+  }
+
+  container.innerHTML = html;
 }
 
 function loadPosts(pageKey, containerId) {

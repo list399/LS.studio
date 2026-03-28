@@ -20,11 +20,16 @@
     <div class="ext-card-title">fizzyceramics.com</div>
     <div class="ext-card-url">↗ visit site</div>
   </a>
+  <div id="posts"><div class="loading">loading&hellip;</div></div>
 </main>
 
 <footer>2026</footer>
 
 <script src="nav.js"></script>
-<script>renderNav('fizzy');</script>
+<script src="sheet.js"></script>
+<script>
+  renderNav('fizzy');
+  loadPosts('fizzy', 'posts');
+</script>
 </body>
 </html>

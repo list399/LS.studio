@@ -1,4 +1,4 @@
-const SHEET_URL = 'https://corsproxy.io/?url=' + encodeURIComponent('https://docs.google.com/spreadsheets/d/e/2PACX-1vT2iJmf1kMKA9tz9pzc7nv9s4nUEvdJGSIstnfGvwzTDavSkbNyaedtqSsxD16twPvd-6eKfoicWU2b/pub?output=csv');
+const SHEET_URL = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://docs.google.com/spreadsheets/d/e/2PACX-1vT2iJmf1kMKA9tz9pzc7nv9s4nUEvdJGSIstnfGvwzTDavSkbNyaedtqSsxD16twPvd-6eKfoicWU2b/pub?output=csv');
 
 function parseCSV(text) {
   const lines = text.trim().split('\n');

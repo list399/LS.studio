@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #fff;
+  color: #000;
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 300;
+  min-height: 100vh;
+}
+
+/* ── Nav ── */
+nav {
+  border-bottom: 1px solid #000;
+  padding: 0 2rem;
+}
+
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 1.1rem 1rem;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+  font-style: normal;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  border-bottom: 2px solid #000;
+}
+
+/* ── Dropdown ── */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.caret {
+  font-size: 0.65rem;
+  opacity: 0.5;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #000;
+  min-width: 140px;
+  z-index: 100;
+  flex-direction: column;
+}
+
+.dropdown-menu.open {
+  display: flex;
+}
+
+.dropdown-item {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: #000;
+  text-decoration: none;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #eee;
+  letter-spacing: 0.03em;
+  transition: background 0.1s;
+}
+
+.dropdown-item:last-child { border-bottom: none; }
+.dropdown-item:hover,
+.dropdown-item.active { background: #f5f5f5; }
+
+/* ── Page header ── */
+header {
+  border-bottom: 1px solid #000;
+  padding: 3rem 0 2.2rem;
+  text-align: center;
+}
+
+.site-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #000;
+}
+
+.page-subtitle {
+  font-size: 0.85rem;
+  font-weight: 300;
+  font-style: italic;
+  color: #888;
+  margin-top: 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+/* ── Main content ── */
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+}
+
+/* ── Bio placeholder ── */
+.bio {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid #000;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #888;
+  font-style: italic;
+}
+
+/* ── External link card ── */
+.ext-card {
+  display: block;
+  margin: 2.5rem 0;
+  padding: 2rem;
+  border: 1px solid #000;
+  text-decoration: none;
+  color: #000;
+  transition: background 0.15s;
+}
+
+.ext-card:hover { background: #f5f5f5; }
+
+.ext-card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.ext-card-url {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.4rem;
+  letter-spacing: 0.04em;
+}
+
+.ext-card-bio {
+  font-size: 0.95rem;
+  color: #888;
+  font-style: italic;
+  margin-top: 0.8rem;
+  line-height: 1.7;
+}
+
+/* ── Posts (Science Toast / Projects) ── */
+.post {
+  padding: 2rem 0;
+  border-bottom: 1px solid #000;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadein 0.4s ease forwards;
+}
+
+@keyframes fadein {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.post-image {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.post-title a {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none;
+  line-height: 1.35;
+}
+
+.post-title a:hover { text-decoration: underline; }
+
+.post-blurb {
+  margin-top: 0.55rem;
+  font-size: 0.95rem;
+  color: #000;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.loading {
+  padding: 4rem 0;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.error {
+  padding: 3rem 0;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.75rem;
+  border-top: 1px solid #000;
+  font-style: italic;
+  color: #888;
+}

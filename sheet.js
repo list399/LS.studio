@@ -48,17 +48,17 @@ function renderPosts(posts, containerId) {
   }
 
   if (withoutImages.length) {
-    html += withoutImages.map((p, i) => `
-      <div class="post" style="animation-delay:${i * 0.07}s">
-        <div class="post-title">
+    html += `<div class="masonry text-masonry">` + withoutImages.map(p => `
+      <div class="masonry-item text-tile">
+        <div class="masonry-caption static">
           ${p.url
-            ? `<a href="${p.url}" target="_blank" rel="noopener">${p.title}</a>`
-            : `<span>${p.title}</span>`
+            ? `<a class="masonry-caption-title" href="${p.url}" target="_blank" rel="noopener">${p.title}</a>`
+            : `<span class="masonry-caption-title">${p.title}</span>`
           }
+          ${p.blurb ? `<p class="masonry-caption-blurb">${p.blurb}</p>` : ''}
         </div>
-        ${p.blurb ? `<p class="post-blurb">${p.blurb}</p>` : ''}
       </div>
-    `).join('');
+    `).join('') + `</div>`;
   }
 
   container.innerHTML = html;

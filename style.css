@@ -242,36 +242,38 @@ main {
   font-weight: 300;
 }
 
-/* ── Text-only posts (no image) ── */
-.post {
-  padding: 2rem 0;
-  border-bottom: 1px solid #000;
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadein 0.4s ease forwards;
+/* ── Text tiles ── */
+.text-masonry {
+  columns: 3;
+  column-gap: 1.5rem;
 }
 
-@keyframes fadein {
-  to { opacity: 1; transform: translateY(0); }
+@media (max-width: 600px) {
+  .text-masonry { columns: 1; }
 }
 
-.post-title a {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: #000;
-  text-decoration: none;
-  line-height: 1.35;
+.text-tile {
+  border: 1px solid #000;
+  margin-bottom: 1.5rem;
 }
 
-.post-title a:hover { text-decoration: underline; }
+.masonry-caption.static {
+  padding: 1.2rem;
+  position: static;
+  transform: none;
+  transition: none;
+  background: #fff;
+}
 
-.post-blurb {
-  margin-top: 0.55rem;
-  font-size: 0.95rem;
-  color: #000;
-  line-height: 1.7;
-  font-weight: 300;
+.text-tile .masonry-caption-title {
+  font-size: 1rem;
+}
+
+.text-tile .masonry-caption-blurb {
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+  color: #444;
+  line-height: 1.65;
 }
 
 /* ── Footer ── */
